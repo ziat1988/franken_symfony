@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>{% block title %}Use Twig's "embed" tag{% endblock %}</title>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+
+<body class="flex flex-col h-screen bg-gray-100">
+<!-- Header -->
+{# {% include('header_skeleton.html.twig') %} will not allow to override sub-blocks #}
+{% block header %}
+    {% embed 'header_skeleton.html.twig' %}{% endembed %}
+{% endblock %}
+
+<!-- Main content -->
+{% block content %}
+    {# Deliberately using vertical skeleton as default layout #}
+    {% embed 'vertical_boxes_skeleton.twig' %}{% endembed %}
+{% endblock %}
+
+<!-- Footer -->
+{# {{% include('footer_skeleton.html.twig') %} will not allow to override sub-blocks #}
+{% block footer %}
+    {% embed 'footer_skeleton.html.twig' %}{% endembed %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
+</html>

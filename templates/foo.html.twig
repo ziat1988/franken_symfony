@@ -1,0 +1,38 @@
+{% extends 'layout_sketleton.twig' %}
+
+{#{% block title %}some new title{% endblock %}#}
+{% block header %}
+    {% embed 'header_skeleton.html.twig' %}
+        {% block title %}Vertical layout{% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {{ render(controller('App\\Controller\\HomeController::navMain')) }}
+{#    {% embed 'vertical_boxes_skeleton.twig' %}#}
+{#        {% block top %}#}
+{#            <div class="text-gray-800 text-3xl h-full flex justify-center">#}
+{#                <span class="self-center">Some content for the top box</span>#}
+{#            </div>#}
+{#        {% endblock %}#}
+
+{#        {% block bottom %}#}
+{#            <div class="text-gray-300 text-3xl h-full flex justify-center">#}
+{#                <span class="self-center">Some content for the bottom box</span>#}
+{#            </div>#}
+{#        {% endblock %}#}
+{#    {% endembed %}#}
+{% endblock %}
+
+{% block footer %}
+
+    footer
+{#    {% embed 'footer_skeleton.html.twig' %}#}
+{#        {% block footer_content %}#}
+{#            <div class="flex flex-row justify-center w-2/3 h-full mx-auto">#}
+{#                <a class="border border-gray-300 rounded-sm px-4 py-2 mx-8 my-auto bg-gray-800 hover:bg-gray-700" href="{{ path('foo_path') }}">Vertical layout</a>#}
+{#                <a class="border border-gray-500 rounded-sm px-4 py-2 mx-8 my-auto text-gray-400 hover:text-gray-300 border-gray-400 hover:bg-gray-700" href="{{ path('boom_path') }}">Horizontal layout</a>#}
+{#            </div>#}
+{#        {% endblock %}#}
+{#    {% endembed %}#}
+{% endblock %}

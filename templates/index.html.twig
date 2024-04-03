@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form(form) }}
+{% endblock %}
+
+
+{% block javascripts %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modeRadios = document.querySelectorAll('.mode-radio input[type="radio"]');
+            const nameWrapper = document.querySelector('.name-wrapper');
+            const textareaWrapper = document.querySelector('.textarea-wrapper');
+
+            function toggleFields() {
+                if (modeRadios[0].checked) { // If 'select' radio is checked
+                    nameWrapper.style.display = 'block';
+                    textareaWrapper.style.display = 'none';
+                } else { // If 'new' radio is checked
+                    nameWrapper.style.display = 'none';
+                    textareaWrapper.style.display = 'block';
+                }
+            }
+
+            // Initial state
+            toggleFields();
+
+            // Add event listener to mode radios
+            modeRadios.forEach(function (radio) {
+                radio.addEventListener('change', toggleFields);
+            });
+        })
+    </script>
+{% endblock %}
